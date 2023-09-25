@@ -2,7 +2,7 @@ require 'restclient'
 require 'json'
 require 'pathname'
 require 'time'
-require_relative 'app/service/generate.rb'
+require_relative 'generate.rb'
 
 # defining the path of certificate
 server_pem_path = File.expand_path('app/service/certificates/server.pem', File.dirname(__FILE__))
@@ -22,6 +22,8 @@ begin
   else
     puts "Server certificate has expired, please regenrate"
   end
+
+  puts ""
 rescue RestClient::ExceptionWithResponse => e
   # Handle RestClient exceptions
   puts "RestClient Exception: #{e.response.code} - #{e.response.body}"
@@ -31,4 +33,6 @@ rescue JSON::ParserError => e
 rescue StandardError => e
   # Handle other standard errors
   puts "Error: #{e.message}"
+ensure
+  puts ""
 end

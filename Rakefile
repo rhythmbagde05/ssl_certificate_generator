@@ -5,4 +5,5 @@ require_relative "config/application"
 
 Rails.application.load_tasks
 
-task :test => "server:start_ssl_server"
+task :server => "server:start_ssl_server"
+task :test => "test:check_server_certificate"

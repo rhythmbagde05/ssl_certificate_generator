@@ -25,7 +25,7 @@ class Generate
     root_ca.issuer = root_ca.subject
     root_ca.public_key = root_key.public_key
     root_ca.not_before = Time.now
-    root_ca.not_after = Time.now + 2 * 60
+    root_ca.not_after = Time.now + 7 * 24 * 60 * 60        # 7 days expiration of certificates
     root_ca.sign(root_key, OpenSSL::Digest::SHA256.new)
 
     return { root_ca: root_ca, root_key: root_key}
@@ -46,9 +46,9 @@ class Generate
     cert.issuer = root_ca.subject
     cert.public_key = key.public_key
     cert.not_before = Time.now
-    cert.not_after = Time.now + 2 * 60
+    cert.not_after = Time.now + 7 * 24 * 60 * 60        # 7 days expiration of certificates
     cert.sign(root_key, OpenSSL::Digest::SHA256.new)
-    # 7 * 24 * 60 * 60
+    
     return { cert: cert, key: key}
   end
 
