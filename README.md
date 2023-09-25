@@ -21,16 +21,26 @@ Installation of these dependencies can be done by homebrew in macOS and download
 ### Installing
 
 * Once you have installed Git, use the following command to clone the repository.
-    - git clone https://github.com/rhythmbagde05/ssl_certificate_generator
+```
+git clone https://github.com/rhythmbagde05/ssl_certificate_generator
+```
 * Go inside the repository
-    - cd ssl_certificate_generator
+```
+cd ssl_certificate_generator
+```
 * Install bundler 
-    - gem install bundler
+```
+gem install bundler
+```
 * Install extra gems that are used
-    - gem install openssl
-    - gem install rest-client
+```
+gem install openssl
+gem install rest-client
+```
 * Install gemfile
-    - bundle install
+```
+bundle install
+```
 
 
 ### Executing program
